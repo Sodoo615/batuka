@@ -1,0 +1,17 @@
+body {
+  background-color: pink;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  gap: 10px;
+}
+.box {
+  width: 90vw;
+  height: 100px;
+  background-color: red;
+}

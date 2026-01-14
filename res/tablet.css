@@ -1,0 +1,17 @@
+body {
+  background-color: lightblue;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 45vw);
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  gap: 10px;
+}
+
+.box {
+  background-color: green;
+  height: 250px;
+}

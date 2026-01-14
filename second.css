@@ -1,0 +1,103 @@
+body {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #020617;
+  font-family: system-ui;
+}
+
+.morph-btn {
+  position: relative;
+  width: 160px;
+  height: 52px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(120deg, #6366f1, #8b5cf6, #6366f1);
+  background-size: 300%;
+  transition: border-radius 0.4s ease, width 0.4s ease,
+    background-position 0.6s ease;
+  overflow: hidden;
+}
+
+.morph-btn:hover {
+  animation: gradient-loop 1.5s linear infinite;
+}
+
+@keyframes gradient-loop {
+  from {
+    background-position: 0%;
+  }
+  to {
+    background-position: 300%;
+  }
+}
+
+.morph-btn .label {
+  position: relative;
+  z-index: 2;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.morph-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 22px;
+  height: 22px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: spin 1s linear infinite;
+}
+
+.morph-btn::after {
+  content: "✓";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.3s ease;
+}
+
+.morph-btn:active {
+  width: 56px;
+  border-radius: 50%;
+  animation: none;
+}
+
+.morph-btn:active .label {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.morph-btn:active::before {
+  opacity: 1;
+}
+
+.morph-btn:focus-visible {
+  width: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+.morph-btn:focus-visible::before {
+  opacity: 0;
+}
+
+.morph-btn:focus-visible::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

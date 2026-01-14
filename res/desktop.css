@@ -1,0 +1,12 @@
+body {
+  background-color: bisque;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 15vw);
+  gap: 50px;
+}
+.box {
+  background-color: blue;
+  height: 200px;
+}
